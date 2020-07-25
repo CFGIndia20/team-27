@@ -1,5 +1,6 @@
 const {findAllJobs, findBySkill} = require('../../dbFunctions/job');
-const {getAccessType, getUserForJob} = require('../../dbFunctions/user');
+const {getAccessType, getStudentDetailsForJob} = require('../../dbFunctions/user');
+const {getPresent, getTotalClasses} = require('../../dbFunctions/attendance');
 const logger = require('../../../config/winston');
 
 const {ServerError, Success, AuthError} = require('../../responses');
@@ -15,13 +16,18 @@ module.exports = {
             }
 
             /** Course completed */
-            const completed = await getUserForJob(userId);
-            if(completed.slot == null || completed.slot.active == false) {
+            const completed = await getStudentDetailsForJob(userId);
+            if(completed.slot == null || completed.slot.active == true) {
                 return res.json(AuthError);
             }
 
-
-            return res.json(AuthError);
+            const allClasses = await getTotalClasses(completed.slot._id);
+            const presentClasses = await getPresent(completed.slot._id);
+            if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
+                return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
+            }
+            const jobs = findBySkill(skills);
+            return res.json({...Success, jobs});
         } catch {
             logger.error({err:error, message: 'An error occured'});
             return res.json(ServerError);
@@ -38,10 +44,17 @@ module.exports = {
 
             /** Course completed */
             const completed = await getUserForJob(user.student);
-            if(completed.slot == null || completed.slot.active == false) {
+            if(completed.slot == null || completed.slot.active == true) {
                 return res.json(AuthError);
             }
-            return res.json(AuthError);
+
+            const allClasses = await getTotalClasses(completed.slot._id);
+            const presentClasses = await getPresent(completed.slot._id);
+            if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
+                return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
+            }
+            const jobs = findBySkill(skills);
+            return res.json({...Success, jobs});
         } catch {
             logger.error({err:error, message: 'An error occured'});
             return res.json(ServerError);

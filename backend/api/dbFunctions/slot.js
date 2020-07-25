@@ -80,7 +80,7 @@ module.exports = {
         return Slot.findOne({_id: id, teacher: userId});
     },
     hasAdminAccess: (id, userId) => {
-        return Slot.findOne({_id: id, addedBy: userId});
+        return Slot.findOne({_id: id, addedBy: userId}).populate({path: 'teacher', select: 'name email'}).lean();
     },
     hasUserAccess:(id, userId) => {
         return Slot.findOne({_id: id, 'students.user': userId})
