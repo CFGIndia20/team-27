@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="assets/js/lib/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/edit.css">
+    <script src="https://kit.fontawesome.com/4d5b20a619.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Navbar</a>
+        <form class="form-inline">
+            <button style="margin-right: 10px;" class="btn btn-outline-success my-2 my-sm-0" id="login"
+                type="submit">Login</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register</button>
+        </form>
+    </nav>
+    <div class="container">
+        <h1 style="text-align: center;">Edit</h1>
+        <div class="row">
+
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" id="name" type="text" name="name" value="" required>
+                    </div>
+                    <!-- image upload -->
+                    <label for="10th">10th Marksheet</label>
+                    <form>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </form>
+
+                    <label for="12th">12th Marksheet</label>
+                    <form>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </form>
+
+                    <label for="aadhar">Aadhar Card</label>
+                    <form>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </form>
+
+                    <label for="bpl">BPL Card</label>
+                    <form>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </form>
+
+                    <!-- skills -->
+                    <div class="mx-auto form-group">
+                        <label class="mb-3 ">What are your skills?</label>
+                        <br>
+                        <select multiple data-style="bg-white rounded-pill px-4 py-3 shadow-sm "
+                            class="selectpicker w-100">
+                            <option>English</option>
+                            <option>Logical</option>
+                            <option>Communication</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Update!</button>
+                    </div>
+                </form>
+                <a href="/">Go Back</a>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/edit.js"></script>
+    <script src="/assets/js/lib/bootstrap-select.min.js"></script>
+    <script src="/assets/js/lib/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+</body>
+
+</html>
