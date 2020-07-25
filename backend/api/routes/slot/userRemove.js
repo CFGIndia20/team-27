@@ -1,4 +1,5 @@
 const {removeUserFromSlot, hasUserAccess } = require('../../dbFunctions/slot');
+const {removeSlotFromUser} = require('../../dbFunctions/user');
 const logger = require('../../../config/winston');
 const {ServerError, AuthError, Success} = require('../../responses');
 
@@ -11,6 +12,10 @@ module.exports = async (req, res) => {
         const slot = await removeUserFromSlot(slotId, userId);
 
         if (slot == null) return res.json(ServerError);
+
+        const updated = await removeSlotFromUser(hasAccess.student);
+        if (updated == null) return res.json(ServerError);
+
         return res.json({...Success});
     } catch (err) {
         logger.error({err:error, message: "An error occured"});

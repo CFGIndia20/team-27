@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Student = require('../models/student');
 
 module.exports = {
     addUser: ( _name, _email, _mobile, _passwordhash, _dateOfBirth, _access ) => {
@@ -25,5 +26,17 @@ module.exports = {
     },
     findUserByEmail: (email) => {
         let user = User.findOne({ email: email });
+    },
+    getAccessType: (id) => {
+        return User.findOne({_id: id});
+    },
+    removeSlotFromUser: (userId) => {
+        return Student.findOneAndUpdate({_id: userId}, {slot: null})
+    },
+    addSlotToUser: (slot, userId) => {
+        return Student.findOneAndUpdate({_id: userId}, {slot: slot})
+    },
+    getStudentDetailsForJob: (id) => {
+        return Student.findOne({_id: id}).populate({path: 'slot'});
     }
 }

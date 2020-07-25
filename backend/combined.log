@@ -1,0 +1,4 @@
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
