@@ -64,7 +64,7 @@ module.exports = {
      * @desc Get slot by ID
      */
     getSlot: (id, userID) => {
-        return Slot.findOne({_id: id, "$or": [{teacher: userID},{addedBy: userID},{students: userID}, {'dailyStatus.teacher': userID}]})
+        return Slot.findOne({_id: id, '$or': [{teacher: userID},{addedBy: userID},{'students.user': userID}, {'dailyStatus.teacher': userID}]})
             .populate({path: 'students.user', select: 'name email'})
             .populate({path: 'teacher', select: 'name email'});
     },

@@ -13,13 +13,13 @@ module.exports = async (req, res, next) => {
   try {
     const token = await verify(accessToken);
     if (token.success != true) return res.status(401).json(AuthError);
-    const user = await User.findOne({_id: token.id, access: 'student'});
-
+    const user = await User.findOne({_id: token.id, access: {"$in":['admin', 'student']}});
     if (user == null) return res.status(401).json(AuthError);
-    // if (!user.verified) return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });
+    // if (!user.verified && user.access == 'student') return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });
+
     req.body.userId = token.id;
     req.body.access = user.access;
-    
+
     next();
   } catch (err) {
     logger.info({message: `Invalid access attempt`});
