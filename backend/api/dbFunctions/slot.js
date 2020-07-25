@@ -86,6 +86,11 @@ module.exports = {
         return Slot.findOne({_id: id, 'students.user': userId})
     },
     
+    getCreatedByUser: (userId) => {
+        return Slot.find({addedBy: userId}).populate({path: 'teacher', select: 'name email'}).lean();
+
+    },
+
     /**
      * Add attendance
      */

@@ -8,8 +8,6 @@ const User = require('../api/routes/user');
 
 const logger = require('./winston');
 
-router.post('/slots', Slot.AddSlot);
-router.delete('/slots', Slot.RemoveSlot);
 router.get('/slots', Slot.GetSlots);
 router.post('/slots/attendance', Slot.PostAttendance);
 router.post('/slots/switch', Slot.AskForChangeSlot);
@@ -20,21 +18,27 @@ router.get('/slots/teachers/free', Slot.GetFreeTeacher);
 router.get('/slots/switch', Slot.GetSwitchRequests);
 
 
-router.post('/user/register', [
+router.post('/auth/register', [
     check('email').isEmail().withMessage("Please enter a valid email address"),
     check('email').notEmpty().withMessage("Please enter an email address"),
     check('password').notEmpty().withMessage("Please enter a password"),
     // check('password').isLength({min:5}).withMessage("Password Length Should be Minimum 5 characters"),
     // check('method').notEmpty().withMessage("Method of login does not exist"),
-    check('name').isAlpha().withMessage("Invalid name"),
+    // check('name').isAlpha().withMessage("Invalid name"),
     check('mobile').isNumeric().isLength({min:8,max:10}).withMessage("Invalid mobile number")
 ], User.Register);
 
-router.post('/user/login', [
+router.post('/auth/login', [
     check('email').isEmail().withMessage("Please enter a valid email address"),
     check('email').notEmpty().withMessage("Please enter an email address"),
     check('password').notEmpty().withMessage("Please enter a password"),
 ], User.Login);
 
+/** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
+router.get('/user/verify', AdminAuth, User.UnVerified);
+router.post('/slots', AdminAuth, Slot.AddSlot);
+router.delete('/slots', AdminAuth, Slot.RemoveSlot);
+router.get('/user/dashboard', AdminAuth, User.Dashboard);
+
 module.exports = router;

@@ -2,7 +2,7 @@ const logger = require('../../../config/winston');
 const {getAccessType, getStudentDetailsForJob} = require('../../dbFunctions/user');
 const {getPresent, getTotalClasses} = require('../../dbFunctions/attendance');
 const {getTeacherOriginalSlots, getAddedSlots} = require('../../dbFunctions/teacher');
-const {hasAdminAccess} = require('../../dbFunctions/slot');
+const {getCreatedByUser} = require('../../dbFunctions/slot');
 
 const {ServerError, Success, AuthError} = require('../../responses');
 
@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
             return res.json({...Success, original, added});
         }
         if (user.access == 'admin') {
-            const slotsCreated = await hasAdminAccess(userId);
+            const slotsCreated = await getCreatedByUser(userId);
             return res.json({...Success, slotsCreated});
         }
         const slotDetails = await getStudentDetailsForJob(user.student);

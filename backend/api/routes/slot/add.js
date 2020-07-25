@@ -4,8 +4,8 @@ const {ServerError, Success} = require('../../responses');
 
 module.exports = async (req, res) => {
     try {
-        const {userId, startDate, endTime, startTime} = req.body;
-        const added = await addSlot(userId, startDate, startTime, endTime);
+        const {userId, startDate, endDate, endTime, startTime} = req.body;
+        const added = await addSlot(userId, startDate, endDate, startTime, endTime);
         if (added == null) return res.json({...ServerError, message: "Error creating the slot"});
         return res.json({...Success, id: added._id});
     } catch(error) {

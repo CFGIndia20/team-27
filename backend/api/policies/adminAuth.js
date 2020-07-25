@@ -12,10 +12,9 @@ module.exports = async (req, res, next) => {
   if (accessToken == null) return res.status(401).json(AuthError);
   try {
     const token = await verify(accessToken);
-    if (token.success != true || token.type != 'access_token') return res.status(401).json(AuthError);
+    if (token.success != true) return res.status(401).json(AuthError);
     const user = await User.findOne({ _id: token.id, access: 'admin' });
     if (user == null) return res.status(401).json(AuthError);
-    if (!user.verified) return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });
 
     req.body.userId = token.id;
     req.body.access = user.access;
