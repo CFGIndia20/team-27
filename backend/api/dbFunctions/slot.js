@@ -1,4 +1,6 @@
 const Slot = require('../models/slot');
+const Attendance = require('../models/attendance');
+const ChangeSlot = require('../models/changeSlot');
 
 module.exports = {
     /**
@@ -60,5 +62,40 @@ module.exports = {
             .populate({path: 'teacher', select: 'name email'});
     },
 
+    hasTeacherAccess: (id, userId) => {
+        return Slot.findOne({_id: id, teacher: userId});
+    },
+    hasAdminAccess: (id, userId) => {
+        return Slot.findOne({_id: id, addedBy: userId});
+    },
 
+    
+    /**
+     * Add attendance
+     */
+    addAttendance: (id, date, userId, attendanceId) => {
+        return Slot.findOneAndUpdate({_id: id, $elemMatch: {'dailyStatus.date': date, 'dailyStatus.teacher': userId}},{'dailyStatus.$.attendance': attendanceId});
+    },
+    createAttendance: (attendance) => {
+        let active = new Attendance({
+            attendance
+        });
+        return active.save();
+    },
+
+    /** Add a slot change request */
+    addSlotChangeRequest: (by, slot, date ) => {
+        let change = new ChangeSlot({
+            by,
+            slot,
+            date,
+        });
+        return change.save();
+    },
+    changeSlotChangeStatus: (id) => {
+        return ChangeSlot.findByIdAndUpdate({_id: id}, {actionTaken: true});
+    },
+    allocateSlotToTeacher: (id, date, userId, teacherId) => {
+        return Slot.findOneAndUpdate({_id: id, addedBy: userId, $elemMatch: {'dailyStatus.date': date }},{'dailyStatus.$.teacher': teacherId});        
+    },
 }
