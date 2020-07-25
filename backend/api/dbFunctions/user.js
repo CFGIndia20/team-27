@@ -19,5 +19,11 @@ module.exports = {
     verifyUser: (id) => {
         let user = User.findOne({ _id: id });
         return user.save();
+    },
+    findUserById: (id) => {
+        let user = User.findOne({ _id: id });
+    },
+    findUserByEmail: (email) => {
+        let user = User.findOne({ email: email });
     }
 }
