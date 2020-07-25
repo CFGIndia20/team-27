@@ -8,12 +8,15 @@ import { AdminStudentComponent } from './admin-student/admin-student.component';
 import { MatListModule } from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AdminTeacherComponent } from './admin-teacher/admin-teacher.component';
+import { AdminTeacherRequestComponent } from './admin-teacher-request/admin-teacher-request.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminStudentComponent,
     AdminTeacherComponent,
+    AdminTeacherRequestComponent,
   
   ],
   imports: [
@@ -22,7 +25,8 @@ import { AdminTeacherComponent } from './admin-teacher/admin-teacher.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatButtonToggleModule
     
   ],
   providers: [],
