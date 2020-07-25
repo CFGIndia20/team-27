@@ -1,17 +1,101 @@
 const Slot = require('../models/slot');
+const Attendance = require('../models/attendance');
+const ChangeSlot = require('../models/changeSlot');
 
 module.exports = {
-    addSlot: (userID, startDate, startTime, endTime) => {
+    /**
+     * @desc Adding a slot to the admin
+     */
+    addSlot: (userID, startDate, endDate, startTime, endTime) => {
         let slot = new Slot({
             addedBy: userID,
-            startDate,
+            startBy: startDate,
+            endBy: endDate,
             startTime,
             endTime
         });
 
         return slot.save();
     },
+
+    /**
+     * @desc Removing a slot
+     */
     removeSlot: (id, userID) => {
         return Slot.findOneAndRemove({_id: id, addedBy: userID});
-    }
+    },
+
+    /**
+     * @desc Add user to the slot
+     */
+    addUserToSlot: (id, userID) => {
+        return Slot.findOneAndUpdate({_id: id}, {"$push": {students: {user: userID}}})
+    },
+
+    /**
+     * @desc Remove user from the slot
+     */
+    removeUserFromSlot: (id, userID) => {
+        return Slot.findOneAndUpdate({_id: id}, {"$pull": {'students.user': userID}})
+    },
+
+    /**
+     * @desc Add teacher to the slot
+     */
+    addTeacherToSlot: (id, userID) => {
+        return Slot.findOneAndUpdate({_id: id}, {teacher: userID})
+    },
+
+    /**
+     * @desc Remove teacher from the slot
+     */
+    removeTeacherFromSlot: (id) => {
+        return Slot.findOneAndUpdate({_id: id}, {teacher: null})
+    },
+
+    /**
+     * @desc Get slot by ID
+     */
+    getSlot: (id, userID) => {
+        return Slot.findOne({_id: id, "$or": [{teacher: userID},{addedBy: userID},{students: userID}, {'dailyStatus.teacher': userID}]})
+            .populate({path: 'students', select: 'name email'})
+            .populate({path: 'teacher', select: 'name email'});
+    },
+
+    hasTeacherAccess: (id, userId) => {
+        return Slot.findOne({_id: id, teacher: userId});
+    },
+    hasAdminAccess: (id, userId) => {
+        return Slot.findOne({_id: id, addedBy: userId});
+    },
+
+    
+    /**
+     * Add attendance
+     */
+    addAttendance: (id, date, userId, attendanceId) => {
+        return Slot.findOneAndUpdate({_id: id, $elemMatch: {'dailyStatus.date': date, 'dailyStatus.teacher': userId}},{'dailyStatus.$.attendance': attendanceId});
+    },
+    createAttendance: (attendance) => {
+        let active = new Attendance({
+            attendance
+        });
+        return active.save();
+    },
+
+    /** Add a slot change request */
+    addSlotChangeRequest: (by, slot, date ) => {
+        let change = new ChangeSlot({
+            by,
+            slot,
+            date,
+        });
+        return change.save();
+    },
+    changeSlotChangeStatus: (id) => {
+        return ChangeSlot.findByIdAndUpdate({_id: id}, {actionTaken: true});
+    },
+    allocateSlotToTeacher: (id, date, userId, teacherId) => {
+        return Slot.findOneAndUpdate({_id: id, addedBy: userId, $elemMatch: {'dailyStatus.date': date }},{'dailyStatus.$.teacher': teacherId});        
+    },
 }
