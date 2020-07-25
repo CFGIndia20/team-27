@@ -5,8 +5,8 @@ const logger = require('../../../config/winston');
 module.exports = async (req, res) => {
     try {
         const file = req.file;
-        console.log(req.file);
-        console.log(req);
+        const { skills } = req.body;
+        console.log(file);
         if (!file) return res.json({ ...BadRequest, msg: "Please choose a file" });
         return res.json({ ...Success});
     } catch(error) {

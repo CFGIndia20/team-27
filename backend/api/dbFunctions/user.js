@@ -38,5 +38,8 @@ module.exports = {
     },
     getStudentDetailsForJob: (id) => {
         return Student.findOne({_id: id}).populate({path: 'slot'});
+    },
+    getAllUnverified: () => {
+        return User.find({verified: false, access: {$ne: 'admin'}}).select('name email _id');
     }
 }

@@ -10,8 +10,6 @@ const upload = require('../api/utils/uploadFile');
 const logger = require('./winston');
 const userAuth = require('../api/policies/userAuth');
 
-router.post('/slots', Slot.AddSlot);
-router.delete('/slots', Slot.RemoveSlot);
 router.get('/slots', Slot.GetSlots);
 router.post('/slots/attendance', Slot.PostAttendance);
 router.post('/slots/switch', Slot.AskForChangeSlot);
@@ -22,26 +20,29 @@ router.get('/slots/teachers/free', Slot.GetFreeTeacher);
 router.get('/slots/switch', Slot.GetSwitchRequests);
 
 
-router.post('/user/register', [
+router.post('/auth/register', [
     check('email').isEmail().withMessage("Please enter a valid email address"),
     check('email').notEmpty().withMessage("Please enter an email address"),
     check('password').notEmpty().withMessage("Please enter a password"),
-    // check('password').isLength({min:5}).withMessage("Password Length Should be Minimum 5 characters"),
-    // check('method').notEmpty().withMessage("Method of login does not exist"),
-    check('name').isAlpha().withMessage("Invalid name"),
-    check('mobile').isNumeric().isLength({min:8,max:10}).withMessage("Invalid mobile number")
+    check('mobile').isNumeric().isLength({ min: 8, max: 10 }).withMessage("Invalid mobile number"),
+    // check('dateOfBirth').isISO8601().withMessage("Please enter a valid date"),
+    check('access').isIn(["student","teacher","admin"]).withMessage("Invalid access value")
 ], User.Register);
 
-router.post('/user/login', [
+router.post('/auth/login', [
     check('email').isEmail().withMessage("Please enter a valid email address"),
     check('email').notEmpty().withMessage("Please enter an email address"),
     check('password').notEmpty().withMessage("Please enter a password"),
 ], User.Login);
 
+router.post('/user/updateprofile', UserAuth, upload.single('dob'), User.StudentUpdateProfile);
+/** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
 
 
-router.post('/user/updateprofile', userAuth, upload.single('dob'), User.StudentUpdateProfile);
+router.get('/user/verify', AdminAuth, User.UnVerified);
+router.post('/slots', AdminAuth, Slot.AddSlot);
+router.delete('/slots', AdminAuth, Slot.RemoveSlot);
+router.get('/user/dashboard', AdminAuth, User.Dashboard);
 
-// router.post('/user/updateprofile', upload.single('dob'), User.StudentUpdateProfile);
 module.exports = router;
