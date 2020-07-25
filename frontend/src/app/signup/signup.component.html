@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="example-card"> 
+      <mat-card >
+        <mat-card-header  color="primary">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>SignUp</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image style="height: 300px;" src="https://www.cinderellaeco.com//images/articles/1569501446299_register_product.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div >
+            <mat-form-field class="example-container" appearance="fill">
+              <mat-label>Name</mat-label>
+              <input [(ngModel)]="name" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill"  > 
+                <mat-label>Email</mat-label>
+                <input type="email" [(ngModel)]="email" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill"  > 
+                <mat-label>Phone</mat-label>
+                <input type="number" minlength="10" maxlength="10" [(ngModel)]="phone" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill"  > 
+                <mat-label>Date</mat-label>
+                <input class="datepicker" data-date-format="mm/dd/yyyy"
+                type="date" [(ngModel)]="date" matInput>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="example-container" appearance="fill">
+                <mat-label>Access</mat-label>
+                <mat-select [(value)]="access">
+                  <mat-option value="student">Student</mat-option>
+                  <mat-option value="teacher">Student</mat-option>
+                  <mat-option value="admin">Student</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill"  > 
+              <mat-label>Password</mat-label>
+              <input type="password" [(ngModel)]="password" matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)=submit() mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+      </mat-card>
+      
+    </div>
+  </div>

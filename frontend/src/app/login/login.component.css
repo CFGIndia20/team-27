@@ -1,0 +1,18 @@
+/* mat-card{
+    height: 100px;
+    width: 500px;
+} */
+.card{
+    height: 100px;
+    width:500px;
+     margin: auto;
+    margin-top: 40px;
+}
+
+.examplecard{
+    align-self: center;
+}
+
+.example-container{
+    width:100%;
+}
