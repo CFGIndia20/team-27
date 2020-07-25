@@ -9,7 +9,7 @@ export class SignupComponent implements OnInit {
   public name : String
   public password : String
   public email : String
-  public phone : String
+  public phone : Number
   public date : Date
   public access : String
   public postData = {

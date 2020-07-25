@@ -1,0 +1,41 @@
+.button{
+    margin: 5px;
+    }
+    .space{
+      flex: 1 1 auto;
+    }
+    
+    #bg {
+        position: fixed; 
+        top: -50%; 
+        left: -50%; 
+        width: 200%; 
+        height: 200%;
+        z-index: -1;
+      }
+      #bg img {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        right: 0; 
+        bottom: 0; 
+        margin: auto; 
+        min-width: 50%;
+        min-height: 50%;
+      }    
+      
+      .main-title{
+        margin: auto; 
+        width: 50%;
+        margin-top: 10%;
+      }
+      .main-title-font{
+        text-align: center;
+        color:#F7DAD4;
+        font-size: 120px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: lighter;
+      }
+      .button-position{
+        margin-top: 3%;
+      }

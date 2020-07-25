@@ -17,6 +17,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms'
@@ -24,6 +26,13 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RegisterBatchComponent } from './register-batch/register-batch.component';
+import { ViewJobsComponent } from './view-jobs/view-jobs.component';
+import { CurrentSlotComponent } from './current-slot/current-slot.component';
+import { TitleComponent } from './title/title.component';
+import { TeacherBatchesComponent } from './teacher-batches/teacher-batches.component';
+import { TeacherAttendanceComponent } from './teacher-attendance/teacher-attendance.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +40,14 @@ import { MainComponent } from './main/main.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    MainComponent
+    MainComponent,
+    ProfileComponent,
+    RegisterBatchComponent,
+    ViewJobsComponent,
+    CurrentSlotComponent,
+    TitleComponent,
+    TeacherBatchesComponent,
+    TeacherAttendanceComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +67,9 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     HttpClientModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

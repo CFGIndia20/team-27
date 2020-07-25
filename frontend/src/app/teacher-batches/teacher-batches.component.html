@@ -1,0 +1,39 @@
+<!-- <div class="card" style="width:25rem;background-color: rgb(71, 84, 88);">
+  
+    <div class="card-body">
+      <h1 class="card-title" style="text-emphasis-style:initial;text-decoration-color: slateblue;">Batch_ID</h1>
+        <div class="btn-group" style="background-color: rgb(3, 56, 77);">
+         <button type="button" class="btn btn-primary"style="background-color: rgb(3, 56, 77)">Start_date</button>
+          <button type="button" class="btn btn-primary" style="background-color: rgb(12, 67, 88);">Time</button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background-color: rgb(3, 56, 77);">View_students
+             <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">XYZ</a></li>
+              <li><a href="#">abc</a></li>
+            </ul>
+          </div>
+        </div>
+  </div>
+  </div> -->
+<div class="container">
+    <br>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Batch ID
+            </mat-panel-title>
+            <mat-panel-description>
+              View Students : {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>  
+      </mat-accordion>
+</div>
