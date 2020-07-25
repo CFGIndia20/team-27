@@ -5,7 +5,9 @@ const ChangeSlot = new mongoose.Schema({
     for: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'},
 
     slot: {type: mongoose.SchemaTypes.ObjectId, ref: 'Slot'},
-    date: {type: mongoose.SchemaTypes.ObjectId, ref: 'Active'},
+    date: {type: Date},
+    
+    actionTaken: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('ChangeSlot', ChangeSlot);
