@@ -19,7 +19,8 @@ import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms'
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -33,6 +34,10 @@ import { CurrentSlotComponent } from './current-slot/current-slot.component';
 import { TitleComponent } from './title/title.component';
 import { TeacherBatchesComponent } from './teacher-batches/teacher-batches.component';
 import { TeacherAttendanceComponent } from './teacher-attendance/teacher-attendance.component';
+import { AdminVerifyComponent } from './admin-verify/admin-verify.component';
+import { AdminCreatebatchComponent } from './admin-createbatch/admin-createbatch.component';
+import { AdminRequestsComponent } from './admin-requests/admin-requests.component';
+import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import { TeacherAttendanceComponent } from './teacher-attendance/teacher-attenda
     CurrentSlotComponent,
     TitleComponent,
     TeacherBatchesComponent,
-    TeacherAttendanceComponent
+    TeacherAttendanceComponent,
+    AdminVerifyComponent,
+    AdminCreatebatchComponent,
+    AdminRequestsComponent,
+    AdminJobsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +78,9 @@ import { TeacherAttendanceComponent } from './teacher-attendance/teacher-attenda
     MatListModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

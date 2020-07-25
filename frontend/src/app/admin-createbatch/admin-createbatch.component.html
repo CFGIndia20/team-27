@@ -1,0 +1,40 @@
+
+<div class="container resize">
+    <form>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="example-container" appearance="fill"  > 
+                <mat-label>Start Date</mat-label>
+                <input class="datepicker" data-date-format="mm/dd/yyyy"
+                type="date" [(ngModel)]="date" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="example-container" appearance="fill"  > 
+                <mat-label>End Date</mat-label>
+                <input class="datepicker" data-date-format="mm/dd/yyyy"
+                type="date" [(ngModel)]="date" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="example-container" appearance="fill"  > 
+                    <mat-label>Start Time(HHMM)</mat-label>
+                    <input type="number"  [(ngModel)]="date" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="example-container" appearance="fill"  > 
+                    <mat-label>End Time(HHMM)</mat-label>
+                    <input type="number"  [(ngModel)]="date" matInput>
+                </mat-form-field>
+            </div>
+          </div>
+        
+        
+            <br><button type="submit" (click)="submit()" mat-raised-button color="primary">Submit</button>
+        
+        
+      </form> 
+    </div>

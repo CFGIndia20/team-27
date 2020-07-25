@@ -10,6 +10,11 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { CurrentSlotComponent } from './current-slot/current-slot.component';
 import { TitleComponent } from './title/title.component';
 import { TeacherBatchesComponent } from './teacher-batches/teacher-batches.component';
+import { TeacherAttendanceComponent } from './teacher-attendance/teacher-attendance.component';
+import { AdminVerifyComponent } from './admin-verify/admin-verify.component';
+import { AdminCreatebatchComponent } from './admin-createbatch/admin-createbatch.component';
+import { AdminRequestsComponent } from './admin-requests/admin-requests.component';
+import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
 
 
 const routes: Routes = [
@@ -19,7 +24,14 @@ const routes: Routes = [
       { path:'registerbatch',component: RegisterBatchComponent},
       { path:'viewjobs',component: ViewJobsComponent},
       { path:'currentbatch',component: CurrentSlotComponent},
-      { path:'teacherbatch',component: TeacherBatchesComponent}
+      { path:'teacherbatch',component: TeacherBatchesComponent},
+      { path:'teacherattendance',component: TeacherAttendanceComponent},
+      { path:'adminverify',component: AdminVerifyComponent},
+      { path:'admincreatebatch',component: AdminCreatebatchComponent},
+      { path:'adminrequests',component: AdminRequestsComponent},
+      { path:'adminjobs',component: AdminJobsComponent},
+      
+      
       
     ]
   },
