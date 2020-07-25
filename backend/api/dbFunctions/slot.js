@@ -65,7 +65,7 @@ module.exports = {
      */
     getSlot: (id, userID) => {
         return Slot.findOne({_id: id, "$or": [{teacher: userID},{addedBy: userID},{students: userID}, {'dailyStatus.teacher': userID}]})
-            .populate({path: 'students', select: 'name email'})
+            .populate({path: 'students.user', select: 'name email'})
             .populate({path: 'teacher', select: 'name email'});
     },
 
@@ -82,7 +82,9 @@ module.exports = {
     hasAdminAccess: (id, userId) => {
         return Slot.findOne({_id: id, addedBy: userId});
     },
-
+    hasUserAccess:(id, userId) => {
+        return Slot.findOne({_id: id, 'students.user': userId})
+    },
     
     /**
      * Add attendance
@@ -98,6 +100,10 @@ module.exports = {
     },
 
     /** Add a slot change request */
+    getSwitchRequests: (userId) => {
+        return ChangeSlot.find({actionTaken: false}).populate({path: 'slot', match: {addedBy: userId}});
+    },
+
     addSlotChangeRequest: (by, slot, date ) => {
         let change = new ChangeSlot({
             by,

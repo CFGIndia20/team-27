@@ -11,8 +11,8 @@ const Slot = new mongoose.Schema({
     
     startBy: {type: Date},
     endBy: {type: Date},
-    startTime: {type: String},
-    endTime: {type: String},
+    startTime: {type: Number},
+    endTime: {type: Number},
 
     dailyStatus: [
         {

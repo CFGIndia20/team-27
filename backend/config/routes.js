@@ -14,5 +14,6 @@ router.post('/slots/switch/respond', Slot.RespondSwitchSlot);
 router.post('/slots/users', Slot.FetchUsers);
 router.post('/slots/select', Slot.SelectSlot);
 router.get('/slots/teachers/free', Slot.GetFreeTeacher);
+router.get('/slots/switch', Slot.GetSwitchRequests);
 
 module.exports = router;

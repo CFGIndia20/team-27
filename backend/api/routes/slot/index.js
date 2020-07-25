@@ -7,3 +7,4 @@ module.exports.RespondSwitchSlot = require('./respondSwitchSlot');
 module.exports.GetSlots = require('./getAllSlots');
 module.exports.SelectSlot = require('./selectSlot');
 module.exports.GetFreeTeacher = require('./getFreeTeachers');
+module.exports.GetSwitchRequests = require('./getSwitchRequests');
