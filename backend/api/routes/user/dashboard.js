@@ -1,6 +1,7 @@
 const logger = require('../../../config/winston');
 const {getAccessType, getStudentDetailsForJob} = require('../../dbFunctions/user');
 const {getPresent, getTotalClasses} = require('../../dbFunctions/attendance');
+const {getTeacherOriginalSlots, getAddedSlots} = require('../../dbFunctions/teacher');
 const {hasAdminAccess} = require('../../dbFunctions/slot');
 
 const {ServerError, Success, AuthError} = require('../../responses');
@@ -17,7 +18,9 @@ module.exports = async (req, res) => {
             return res.json({...AuthError, message: 'Please enter your details'})
         }
         if (user.access == 'teacher') {
-
+            const original = await getTeacherOriginalSlots(userId);
+            const added = await getAddedSlots(userId);
+            return res.json({...Success, original, added});
         }
         if (user.access == 'admin') {
             const slotsCreated = await hasAdminAccess(userId);

@@ -26,5 +26,12 @@ module.exports = {
                     {startTime: {$gte: 1400 }}
                 ]
             }}).sort({'slots': 1}).select('name email _id');
+    },
+
+    getTeacherOriginalSlots: (userId) => {
+        return Slot.find({teacher: userId}).select('startDate endDate startTime endTime students').lean();
+    },
+    getAddedSlots: (userId) => {
+        return Slot.find({teacher: {$ne: userId}, elemMatch: { 'dailyStatus.teacher': userId }}).select('dailyStatus');
     }
 }
