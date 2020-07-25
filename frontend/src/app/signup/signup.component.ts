@@ -26,6 +26,6 @@ export class SignupComponent implements OnInit {
   }
   //for signup
   submit(){
-    this.service.post(this.postData);
+    this.service.signup(this.postData);
   }
 }

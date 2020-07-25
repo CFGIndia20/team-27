@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
   submit(){
     //for login
-    let data = this.service.post(this.postData);
+    let data = this.service.login(this.postData);
     //localStorage.setItem('token',data.token);
     //localStorage.setItem('name',data.name); 
     this.route.navigate(['./home']);
