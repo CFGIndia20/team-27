@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
         const {userId} = req.body;
         const slots = await getAllSlots();
         return res.json({...Success, slots: slots});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

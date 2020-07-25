@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
         const teachers = await getFreeTeachers(slot.startTime);
 
         return res.json({...Success, teachers: teachers});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

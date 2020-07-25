@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
         const added = await addSlot(userId, startDate, startTime, endTime);
         if (added == null) return res.json({...ServerError, message: "Error creating the slot"});
         return res.json({...Success, id: added._id});
-    } catch {
+    } catch(error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);
     }

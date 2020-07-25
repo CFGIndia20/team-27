@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
         if (slot == null) return res.json(ServerError);
         return res.json({...Success});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

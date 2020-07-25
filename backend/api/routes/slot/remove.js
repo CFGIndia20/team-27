@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
         const removed = await removeSlot(slotId, userId);
         if (removed == null) return res.json({...ServerError, message: "Error creating the slot"});
         return res.json({...Success});
-    } catch {
+    } catch(error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);
     }

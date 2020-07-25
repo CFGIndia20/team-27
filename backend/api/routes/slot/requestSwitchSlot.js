@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
         const slot = await addSlotChangeRequest(userId, slotId, date);
         if (slot == null) return res.json({...ServerError, message: "An error occured while adding the request"});
         return res.json({...Success, users: slot.students});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

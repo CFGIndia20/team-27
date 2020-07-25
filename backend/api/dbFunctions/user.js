@@ -1,29 +1,29 @@
 const User = require('../models/user');
 
 module.exports = {
-    addUser: ( _name, _email, _mobile, _passwordhash, _dateOfBirth, _access ) => {
+    addUser: ( name, email, mobile, passwordhash, dateOfBirth, access ) => {
         let user = new User({
-            name = _name,
-            email = _email,
-            mobile = _mobile,
-            password = _passwordhash,
-            dateOfBirth = _dateOfBirth,
-            access = _access
+            name ,
+            email,
+            mobile,
+            password : passwordhash,
+            dateOfBirth ,
+            access
         });
 
         return user.save();
     },
-    removeUser: (id) => {
-        return User.findOneAndRemove({_id: id});
+    removeUser: (_id) => {
+        return User.findOneAndRemove({_id});
     },
-    verifyUser: (id) => {
-        let user = User.findOne({ _id: id });
-        return user.save();
+    verifyUser:  (_id) => {
+        return User.findOneAndUpdate({ _id},{verified:true});
+        
     },
-    findUserById: (id) => {
-        let user = User.findOne({ _id: id });
+    findUserById: (_id) => {
+        return User.findOne({ _id });
     },
     findUserByEmail: (email) => {
-        let user = User.findOne({ email: email });
+        return User.findOne({ email });
     }
 }

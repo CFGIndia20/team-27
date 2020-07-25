@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
         if (slot.students >= 15) {
             await assignTeacher(slotId);
         }
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

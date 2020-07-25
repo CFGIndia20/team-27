@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
         const slot = await getSlot(slotId, userId);
         if (slot == null) return res.json({...AuthError, message: "You are not authorized to view the slot"});
         return res.json({...Success, users: slot.students});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

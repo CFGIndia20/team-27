@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
         const {userId} = req.body;
         const requests = await getSwitchRequests(userId);
         return res.json({...Success, requests: requests});
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

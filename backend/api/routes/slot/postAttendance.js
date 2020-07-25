@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
         if (updated == null) return res.json({...ServerError, message: "An error occured while trying to add the attendance"});
 
         return res.json(Success);
-    } catch (err) {
+    } catch (error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

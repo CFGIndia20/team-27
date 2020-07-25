@@ -1,6 +1,6 @@
 const {verify} = require('../utils/jwt');
 const logger = require('../../config/winston');
-const {AuthError} = require('../responses');
+const {AuthError, Forbidden} = require('../responses');
 const User = require('../models/user');
 
 
@@ -15,10 +15,10 @@ module.exports = async (req, res, next) => {
     if (token.success != true || token.type != 'access_token') return res.status(401).json(AuthError);
     const user = await User.findOne({_id: token.id, access: 'user'});
     if (user == null) return res.status(401).json(AuthError);
-
+    if (!user.verified) return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });
     req.body.userId = token.id;
     req.body.access = user.access;
-
+    
     next();
   } catch (err) {
     logger.info({message: `Invalid access attempt`});

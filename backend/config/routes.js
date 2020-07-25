@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const { AdminAuth, TeacherAuth, UserAuth } = require('../api/policies');
+const { check, validationResult } = require('express-validator');
 
 const Slot = require('../api/routes/slot')
+const User = require('../api/routes/user');
 
 const logger = require('./winston');
 
@@ -16,4 +19,22 @@ router.post('/slots/select', Slot.SelectSlot);
 router.get('/slots/teachers/free', Slot.GetFreeTeacher);
 router.get('/slots/switch', Slot.GetSwitchRequests);
 
+
+router.post('/user/register', [
+    check('email').isEmail().withMessage("Please enter a valid email address"),
+    check('email').notEmpty().withMessage("Please enter an email address"),
+    check('password').notEmpty().withMessage("Please enter a password"),
+    // check('password').isLength({min:5}).withMessage("Password Length Should be Minimum 5 characters"),
+    // check('method').notEmpty().withMessage("Method of login does not exist"),
+    check('name').isAlpha().withMessage("Invalid name"),
+    check('mobile').isNumeric().isLength({min:8,max:10}).withMessage("Invalid mobile number")
+], User.Register);
+
+router.post('/user/login', [
+    check('email').isEmail().withMessage("Please enter a valid email address"),
+    check('email').notEmpty().withMessage("Please enter an email address"),
+    check('password').notEmpty().withMessage("Please enter a password"),
+], User.Login);
+
+router.post('/user/verify', AdminAuth, User.Verify);
 module.exports = router;
