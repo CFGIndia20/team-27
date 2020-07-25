@@ -4,7 +4,7 @@ const {ServerError, AuthError, Success} = require('../../responses');
 
 module.exports = async (req, res) => {
     try {
-        const {requestId, userId, date, status, teacherId} = req.body;
+        const {requestId, userId, status, teacherId} = req.body;
 
         const switchRequest = await changeSlotChangeStatus(requestId);
         if (switchRequest == null) return res.json({...ServerError, message: "An error occured while handling the request"});
