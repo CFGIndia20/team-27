@@ -57,7 +57,7 @@ module.exports = {
      * @desc Remove teacher from the slot
      */
     removeTeacherFromSlot: (id) => {
-        return Slot.findOneAndUpdate({_id: id}, {teacher: null})
+        return Slot.findOneAndUpdate({_id: id}, {teacher: null, dailyStatus: null});
     },
 
     /**
