@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const Slot = new mongoose.Schema({
-    addedBy: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'},
-    teacher: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'},
+    addedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User',default:null},
+    teacher: {type: mongoose.Schema.Types.ObjectId, ref: 'User',default:null},
     students: [{
         joinedOn: {type: Date, default: new Date()},
-        user: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'}
+        user: {type: mongoose.Schema.Types.ObjectId, ref: 'User',default: null}
     }],
     active: {type: Boolean, default: true},
     
@@ -16,9 +16,9 @@ const Slot = new mongoose.Schema({
 
     dailyStatus: [
         {
-            teacher: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'},
+            teacher: {type: mongoose.Schema.Types.ObjectId, ref: 'User', default:null},
             date: {type: Date},
-            attendance: {type: mongoose.SchemaType.ObjectId, ref: 'Attendance'}
+            attendance: {type: mongoose.Schema.Types.ObjectId, ref: 'Attendance',default:null}
         }
     ]
 });

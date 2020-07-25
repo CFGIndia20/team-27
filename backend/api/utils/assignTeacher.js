@@ -1,7 +1,7 @@
 const {slotDetails, addTeacherToSlot} = require('../dbFunctions/slot');
 const {getFreeTeachers} = require('../dbFunctions/teacher');
 
-module.exports = (slotId) => {
+module.exports = async (slotId) => {
     try {
         const slot = await slotDetails(slotId);
         if (slot == null) return;

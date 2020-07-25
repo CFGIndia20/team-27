@@ -11,9 +11,9 @@ const User = new mongoose.Schema({
     access: {type: String, enum: ['student', 'admin', 'teacher']},
     joinedAt: {type: Date, default: new Date()},
 
-    student: {type: mongoose.SchemaTypes.ObjectId, ref: 'Student'},
-    teacher: {type: mongoose.SchemaTypes.ObjectId, ref: 'Teacher'},
-    admin: {type: mongoose.SchemaTypes.ObjectId, ref: 'Admin'}
+    student: {type: mongoose.Schema.Types.ObjectId, ref: 'Student'},
+    teacher: {type: mongoose.Schema.Types.ObjectId, ref: 'Teacher'},
+    admin: {type: mongoose.Schema.Types.ObjectId, ref: 'Admin'}
 });
 
 module.exports = mongoose.model('User', User);
