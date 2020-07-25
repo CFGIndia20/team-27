@@ -8,10 +8,7 @@ const Student = new mongoose.Schema({
         }       
     ],
     skills: [{type: String, enum: ['Communication', 'Reasoning', 'Verbal']}],
-    slot: {
-        active: {type: Boolean, default: false},
-        slot: {type: mongoose.Schema.Types.ObjectId, ref: 'Slot'}
-    },
+    slot: {type: mongoose.SchemaTypes.ObjectId, ref: 'Slot'},
 });
 
 module.exports = mongoose.model('Student', Student);
