@@ -9,9 +9,9 @@ module.exports = {
     bySkill: async (req, res) => {
         try {
             const {userId, skills} = req.body;
-            
+            const user = await getAccessType(userId);
             if (user.access == 'admin') {
-                const jobs = findBySkill(skills);
+                const jobs = await findBySkill(skills);
                 return res.json({...Success, jobs});
             }
 
@@ -28,7 +28,7 @@ module.exports = {
             }
             const jobs = findBySkill(skills);
             return res.json({...Success, jobs});
-        } catch {
+        } catch (error) {
             logger.error({err:error, message: 'An error occured'});
             return res.json(ServerError);
         }
@@ -38,7 +38,7 @@ module.exports = {
             const {userId} = req.body;
             const user = await getAccessType(userId);
             if (user.access == 'admin') {
-                const jobs = findAllJobs();
+                const jobs = await findAllJobs();
                 return res.json({...Success, jobs});
             }
 
@@ -55,7 +55,7 @@ module.exports = {
             }
             const jobs = findBySkill(skills);
             return res.json({...Success, jobs});
-        } catch {
+        } catch (error) {
             logger.error({err:error, message: 'An error occured'});
             return res.json(ServerError);
         }

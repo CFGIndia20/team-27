@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 
 const Slot = require('../api/routes/slot')
 const User = require('../api/routes/user');
+const Job = require('../api/routes/job');
 
 const logger = require('./winston');
 
@@ -40,5 +41,9 @@ router.get('/user/verify', AdminAuth, User.UnVerified);
 router.post('/slots', AdminAuth, Slot.AddSlot);
 router.delete('/slots', AdminAuth, Slot.RemoveSlot);
 router.get('/user/dashboard', AdminAuth, User.Dashboard);
+router.post('/job', AdminAuth,Job.AddJob);
+router.delete('/job', AdminAuth, Job.RemoveJob);
+router.get('/job', AdminAuth, Job.Search.all);
+router.post('/job/bySkill', AdminAuth, Job.Search.bySkill);
 
 module.exports = router;

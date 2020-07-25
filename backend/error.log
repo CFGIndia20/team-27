@@ -12,3 +12,9 @@
 {"err":{},"message":"An error occured","level":"error"}
 {"err":{},"message":"An error occured","level":"error"}
 {"err":{},"message":"An error occured","level":"error"}
+{"err":{"errors":{"skills.0":{"properties":{"message":"`Frontend` is not a valid enum value for path `skills.0`.","type":"enum","enumValues":["Communication","Reasoning","Verbal"],"path":"skills.0","value":"Frontend"},"kind":"enum","path":"skills.0","value":"Frontend"},"skills.1":{"properties":{"message":"`Backend` is not a valid enum value for path `skills.1`.","type":"enum","enumValues":["Communication","Reasoning","Verbal"],"path":"skills.1","value":"Backend"},"kind":"enum","path":"skills.1","value":"Backend"}},"_message":"Job validation failed","message":"Job validation failed: skills.0: `Frontend` is not a valid enum value for path `skills.0`., skills.1: `Backend` is not a valid enum value for path `skills.1`."},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
