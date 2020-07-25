@@ -1,6 +1,5 @@
 const JwtStrategy = require('passport-jwt').Strategy,
 ExtractJwt = require('passport-jwt').ExtractJwt;
-const mongoose = require('mongoose');
 const User = require('../models/user');
 const jwtKey  = require("../../config/loadConfig").JWT;
 
@@ -13,12 +12,15 @@ module.exports = passport => {
         // console.log(jwt_payload);
         User.ById(jwt_payload.id)
             .then(user => {
-                if(user) {
+                if(user && user.access == 'student') {
                     return done(null, user);
                 }
 
                 return done(null, false);
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                logger.error({error:err, message: 'An error occured'})
+                return done(null, false);
+            });
     }));
 };
