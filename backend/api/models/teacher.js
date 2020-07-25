@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
 const Teacher = new mongoose.Schema({
-    slots: [{
-        active: {type: Boolean, default: false},
-        slot: {type: mongoose.SchemaTypes.ObjectId, ref: 'Slot'}
-    }],
+    slots: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Slot'}],
+    for: {type:  mongoose.SchemaTypes.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Teacher', Teacher);
