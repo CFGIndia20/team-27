@@ -10,7 +10,7 @@ opts.secretOrKey = jwtKey;
 module.exports = passport => {
     passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
         // console.log(jwt_payload);
-        User.ById(jwt_payload.id)
+        User.findOneById(jwt_payload.id)
             .then(user => {
                 if(user && user.access == 'student') {
                     return done(null, user);
