@@ -1,3 +1,4 @@
+const isSameDay = require('date-fns/isSameDay')
 const Slot = require('../models/slot');
 const Attendance = require('../models/attendance');
 const ChangeSlot = require('../models/changeSlot');
@@ -106,7 +107,8 @@ module.exports = {
 
     /** Add a slot change request */
     getSwitchRequests: (userId) => {
-        return ChangeSlot.find({actionTaken: false}).populate({path: 'slot', match: {addedBy: userId}});
+        return ChangeSlot.find({actionTaken: false}).populate({path: 'slot', match: {addedBy: userId}, select: 'startDate endDate startBy endBy'})
+            .populate({path: 'by', select: 'name email'});
     },
 
     addSlotChangeRequest: (by, slot, date ) => {
@@ -121,6 +123,8 @@ module.exports = {
         return ChangeSlot.findByIdAndUpdate({_id: id}, {actionTaken: true});
     },
     allocateSlotToTeacher: (id, date, userId, teacherId) => {
-        return Slot.findOneAndUpdate({_id: id, addedBy: userId, $elemMatch: {'dailyStatus.date': date }},{'dailyStatus.$.teacher': teacherId});        
+        return Slot.findOneAndUpdate({_id: id, addedBy: userId,
+            dailyStatus: {"$elemMatch": { date: date }}},
+            {'dailyStatus.$.teacher': teacherId});        
     },
 }

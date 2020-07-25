@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
   try {
     const token = await verify(accessToken);
     if (token.success != true) return res.status(401).json(AuthError);
-    const user = await User.findOne({_id: token.id, access: 'student'});
+    const user = await User.findOne({_id: token.id});
 
     if (user == null) return res.status(401).json(AuthError);
     // if (!user.verified) return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });

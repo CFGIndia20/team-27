@@ -19,7 +19,11 @@ module.exports = async (slotId) => {
         const slot = await slotDetails(slotId);
         if (slot == null) return;
         const teachers = await getFreeTeachers(slot.startTime);
-        const added = await addTeacherToSlot(slotId, teachers[0]._id);
+        let temp = [];
+        teachers.forEach((elem) => temp.push(elem._id));
+        const getTeacher = await getTeachersByList(temp);
+
+        const added = await addTeacherToSlot(slotId, getTeacher[0].for._id);
         if (added == null) return; // Send mail to admin to manually assign
         // const result = await runService(slot.startDate, slot.endDate, teachers[0]._id, slotId);
         // console.log(result);
