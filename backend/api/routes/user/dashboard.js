@@ -11,9 +11,6 @@ module.exports = async (req, res) => {
         const {userId} = req.body;
 
         const user = await getAccessType(userId);
-        if (user.verified == false) {
-            return res.json({...AuthError, message: 'Please get verified'})
-        }
         if (user.access == 'student' && user.student == null) {
             return res.json({...AuthError, message: 'Please enter your details'})
         }
@@ -31,9 +28,9 @@ module.exports = async (req, res) => {
             return res.json({...Success, active: null, message: 'Add a new slot'})
         }
 
-        const presentClasses = await getPresent(slotDetails.slot._id);
+        const presentClasses = await getPresent(slotDetails.slot._id, userId);
         const allClasses = await getTotalClasses(slotDetails.slot._id);
-        return res.json({...Success, isActive: slotDetails.slot.active, presentClasses, allClasses});
+        return res.json({...Success, isActive: slotDetails.slot.active, presentClasses: presentClasses.dailyStatus, allClasses: allClasses.dailyStatus});
     } catch (err) {
         logger.error({err:error, message: 'An error occured'});
         return res.json(ServerError);

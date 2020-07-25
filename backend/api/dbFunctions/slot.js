@@ -95,12 +95,12 @@ module.exports = {
     /**
      * Add attendance
      */
-    addAttendance: (id, date, userId, attendanceId) => {
-        return Slot.findOneAndUpdate({_id: id, $elemMatch: {'dailyStatus.date': date, 'dailyStatus.teacher': userId}},{'dailyStatus.$.attendance': attendanceId});
+    addAttendance: (id, day, userId, attendanceId) => {
+        return Slot.findOneAndUpdate({_id: id, dailyStatus: {$elemMatch: {date: day, teacher: userId}}},{'dailyStatus.$.attendance': attendanceId});
     },
     createAttendance: (attendance) => {
         let active = new Attendance({
-            attendance
+            present: attendance
         });
         return active.save();
     },

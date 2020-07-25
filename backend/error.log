@@ -34,3 +34,8 @@
 {"err":{"operationTime":"6853537124487004161","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853537124487004161","signature":{"hash":"v0wMAa77mjP9svpp+0/40yoBU+s=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
 {"err":{},"message":"An error occured","level":"error"}
 {"err":{},"message":"An error occured","level":"error"}
+{"err":{"operationTime":"6853555794709839874","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853555794709839874","signature":{"hash":"XPq20qW2PCf2JF39NVCv7MOmFb4=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
+{"err":{"operationTime":"6853556211321667585","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853556211321667585","signature":{"hash":"Fx2P4ga1XNHPVf1Yoik1YMQPSOs=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
