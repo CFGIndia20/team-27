@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { VerifyStudentComponent } from './verify-student/verify-student.component';
+ 
 
 @Component({
   selector: 'app-admin-verify',
@@ -7,8 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminVerifyComponent implements OnInit {
  
-  constructor() { }
-  
+  constructor(public dialog:MatDialog) { }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VerifyStudentComponent, {
+      height: '600px',
+      width :'700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+ 
+    });
+  }
   ngOnInit(): void {
   }
 

@@ -21,6 +21,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {ReactiveFormsModule,FormsModule} from '@angular/forms'
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -38,6 +39,8 @@ import { AdminVerifyComponent } from './admin-verify/admin-verify.component';
 import { AdminCreatebatchComponent } from './admin-createbatch/admin-createbatch.component';
 import { AdminRequestsComponent } from './admin-requests/admin-requests.component';
 import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
+import { AddJobComponent } from './admin-jobs/add-job/add-job.component';
+import { VerifyStudentComponent } from './admin-verify/verify-student/verify-student.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
     AdminVerifyComponent,
     AdminCreatebatchComponent,
     AdminRequestsComponent,
-    AdminJobsComponent
+    AdminJobsComponent,
+    AddJobComponent,
+    VerifyStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,8 @@ import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
     MatTableModule,
     MatExpansionModule,
     MatGridListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
