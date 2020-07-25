@@ -5,8 +5,10 @@ const { check, validationResult } = require('express-validator');
 
 const Slot = require('../api/routes/slot')
 const User = require('../api/routes/user');
+const upload = require('../api/utils/uploadFile');
 
 const logger = require('./winston');
+const userAuth = require('../api/policies/userAuth');
 
 router.post('/slots', Slot.AddSlot);
 router.delete('/slots', Slot.RemoveSlot);
@@ -37,4 +39,9 @@ router.post('/user/login', [
 ], User.Login);
 
 router.post('/user/verify', AdminAuth, User.Verify);
+
+
+router.post('/user/updateprofile', userAuth, upload.single('dob'), User.StudentUpdateProfile);
+
+// router.post('/user/updateprofile', upload.single('dob'), User.StudentUpdateProfile);
 module.exports = router;
