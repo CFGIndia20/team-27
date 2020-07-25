@@ -25,6 +25,13 @@ module.exports = {
         return Slot.findOneAndRemove({_id: id, addedBy: userID});
     },
 
+    /** 
+     * @desc Slot details
+     **/
+    slotDetails: (id) => {
+        return Slot.findOne({_id: id});
+    },
+
     /**
      * @desc Add user to the slot
      */
@@ -60,6 +67,13 @@ module.exports = {
         return Slot.findOne({_id: id, "$or": [{teacher: userID},{addedBy: userID},{students: userID}, {'dailyStatus.teacher': userID}]})
             .populate({path: 'students', select: 'name email'})
             .populate({path: 'teacher', select: 'name email'});
+    },
+
+    /** 
+     * @desc Get all slots
+     */
+    getAllSlots: () => {
+        return Slot.find({});
     },
 
     hasTeacherAccess: (id, userId) => {

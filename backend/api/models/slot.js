@@ -7,6 +7,7 @@ const Slot = new mongoose.Schema({
         joinedOn: {type: Date, default: new Date()},
         user: {type: mongoose.SchemaTypes.ObjectId, ref: 'User'}
     }],
+    active: {type: Boolean, default: true},
     
     startBy: {type: Date},
     endBy: {type: Date},

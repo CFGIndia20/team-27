@@ -4,3 +4,6 @@ module.exports.FetchUsers = require('./getUsers')
 module.exports.PostAttendance = require('./postAttendance');
 module.exports.AskForChangeSlot = require('./requestSwitchSlot');
 module.exports.RespondSwitchSlot = require('./respondSwitchSlot');
+module.exports.GetSlots = require('./getAllSlots');
+module.exports.SelectSlot = require('./selectSlot');
+module.exports.GetFreeTeacher = require('./getFreeTeachers');
