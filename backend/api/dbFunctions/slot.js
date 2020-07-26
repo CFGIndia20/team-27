@@ -1,7 +1,9 @@
-const isSameDay = require('date-fns/isSameDay')
+const endOfDayfrom = require('date-fns/endOfDay');
+const startOfDay = require('date-fns/startOfDay');
 const Slot = require('../models/slot');
 const Attendance = require('../models/attendance');
 const ChangeSlot = require('../models/changeSlot');
+const { start } = require('repl');
 
 module.exports = {
     /**
@@ -96,7 +98,10 @@ module.exports = {
      * Add attendance
      */
     addAttendance: (id, day, userId, attendanceId) => {
-        return Slot.findOneAndUpdate({_id: id, dailyStatus: {$elemMatch: {date: day, teacher: userId}}},{'dailyStatus.$.attendance': attendanceId});
+        let start = startOfDay(new Date(day));
+        let end = endOfDayfrom(new Date(day));
+
+        return Slot.findOneAndUpdate({_id: id, dailyStatus: {$elemMatch: {date: { $gt: start, $lt: end}, teacher: userId }}},{'dailyStatus.$.attendance': attendanceId});
     },
     createAttendance: (attendance) => {
         let active = new Attendance({
@@ -122,9 +127,12 @@ module.exports = {
     changeSlotChangeStatus: (id) => {
         return ChangeSlot.findByIdAndUpdate({_id: id}, {actionTaken: true});
     },
-    allocateSlotToTeacher: (id, date, userId, teacherId) => {
+    allocateSlotToTeacher: (id, day, userId, teacherId) => {
+        let start = startOfDay(new Date(day));
+        let end = endOfDayfrom(new Date(day));
+
         return Slot.findOneAndUpdate({_id: id, addedBy: userId,
-            dailyStatus: {"$elemMatch": { date: date }}},
+            dailyStatus: {"$elemMatch": { date: { $gte: start, $lte: end}}}},
             {'dailyStatus.$.teacher': teacherId});        
     },
 }
