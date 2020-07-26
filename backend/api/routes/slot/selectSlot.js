@@ -8,12 +8,12 @@ module.exports = async (req, res) => {
         const {userId, slotId} = req.body;
         const user = await getAccessType(userId);
         const slot = await addUserToSlot(slotId, userId);
+
         if (slot == null) return res.json(ServerError);
-
         const updated = await addSlotToUser(slotId, user.student);
-        if (updated == null) return res.json(ServerError);
 
-        res.json({...Success, slots: slots});
+        if (updated == null) return res.json(ServerError);
+        res.json({...Success});
         if (slot.students >= 15) {
             await assignTeacher(slotId);
         }

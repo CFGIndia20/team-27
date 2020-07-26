@@ -1,18 +1,63 @@
 const User = require('../models/user');
 const Student = require('../models/student');
+const Teacher = require('../models/teacher');
+const teacher = require('../models/teacher');
 
 module.exports = {
-    addUser: ( name, email, mobile, passwordhash, dateOfBirth, access ) => {
+    addUser: async ( name, email, mobile, passwordhash, dateOfBirth, access ) => {
+        if(access == 'student') {
+            let student;
+            student = new Student({
+                uploads: [],
+                skills: [],
+                slot: null,
+            });
+            student = await student.save();
+
+            let user = new User({
+                name ,
+                email,
+                mobile,
+                password : passwordhash,
+                dateOfBirth,
+                access,
+                student
+            });
+
+            return user.save();
+        }
+        if (access == 'teacher') {
+            let user = new User({
+                name ,
+                email,
+                mobile,
+                password : passwordhash,
+                dateOfBirth,
+                access,
+            });
+
+            user = await user.save();
+            teacher = new Teacher({
+                slots: [],
+                for: user._id
+            });
+            teacher = await teacher.save();
+            return User.findOneAndUpdate({_id: user._id}, {teacher: teacher._id});
+
+
+        }
+
         let user = new User({
             name ,
             email,
             mobile,
             password : passwordhash,
-            dateOfBirth ,
-            access
+            dateOfBirth,
+            access,
         });
 
         return user.save();
+
     },
     removeUser: (_id) => {
         return User.findOneAndRemove({_id});

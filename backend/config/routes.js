@@ -1,23 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { AdminAuth, TeacherAuth, UserAuth } = require('../api/policies');
+const { AdminAuth, TeacherAuth, AdminUserAuth, UserAuth, StudentAuth } = require('../api/policies');
 const { check, validationResult } = require('express-validator');
 
 const Slot = require('../api/routes/slot')
 const User = require('../api/routes/user');
 const upload = require('../api/utils/uploadFile');
+const Job = require('../api/routes/job');
 
 const logger = require('./winston');
 const userAuth = require('../api/policies/userAuth');
 
 router.get('/slots', Slot.GetSlots);
 router.post('/slots/attendance', Slot.PostAttendance);
-router.post('/slots/switch', Slot.AskForChangeSlot);
-router.post('/slots/switch/respond', Slot.RespondSwitchSlot);
-router.post('/slots/users', Slot.FetchUsers);
-router.post('/slots/select', Slot.SelectSlot);
-router.get('/slots/teachers/free', Slot.GetFreeTeacher);
-router.get('/slots/switch', Slot.GetSwitchRequests);
 
 
 router.post('/auth/register', [
@@ -40,9 +35,31 @@ router.post('/user/updateprofile', UserAuth, upload.single('dob'), User.StudentU
 router.post('/user/verify', AdminAuth, User.Verify);
 
 
+
+/** Admin functions */
+router.post('/user/verify', AdminAuth, User.Verify);
 router.get('/user/verify', AdminAuth, User.UnVerified);
 router.post('/slots', AdminAuth, Slot.AddSlot);
 router.delete('/slots', AdminAuth, Slot.RemoveSlot);
-router.get('/user/dashboard', AdminAuth, User.Dashboard);
+router.get('/user/dashboard', AdminUserAuth, User.Dashboard);
+router.post('/job', AdminAuth,Job.AddJob);
+router.delete('/job', AdminAuth, Job.RemoveJob);
+router.get('/slots/change', AdminAuth, Slot.GetSwitchRequests);
+router.post('/slots/change/respond',AdminAuth, Slot.RespondSwitchSlot);
+router.post('/slots/teachers/free',AdminAuth, Slot.GetFreeTeacher);
+
+router.get('/job', AdminUserAuth, Job.Search.all);
+router.post('/job/bySkill', AdminUserAuth, Job.Search.bySkill);
+router.post('/slots/users',UserAuth, Slot.FetchUsers);
+
+
+
+/** USer functions */
+router.get('/slots',AdminUserAuth, Slot.GetSlots);
+router.post('/slots/select', StudentAuth, Slot.SelectSlot);
+
+
+/** Teacher functions */
+router.post('/slots/change', TeacherAuth, Slot.AskForChangeSlot);
 
 module.exports = router;

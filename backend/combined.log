@@ -443,41 +443,6 @@
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -500,6 +465,19 @@
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
@@ -554,12 +532,99 @@
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"errors":{"skills.0":{"properties":{"message":"`Frontend` is not a valid enum value for path `skills.0`.","type":"enum","enumValues":["Communication","Reasoning","Verbal"],"path":"skills.0","value":"Frontend"},"kind":"enum","path":"skills.0","value":"Frontend"},"skills.1":{"properties":{"message":"`Backend` is not a valid enum value for path `skills.1`.","type":"enum","enumValues":["Communication","Reasoning","Verbal"],"path":"skills.1","value":"Backend"},"kind":"enum","path":"skills.1","value":"Backend"}},"_message":"Job validation failed","message":"Job validation failed: skills.0: `Frontend` is not a valid enum value for path `skills.0`., skills.1: `Backend` is not a valid enum value for path `skills.1`."},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -633,18 +698,14 @@
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -694,6 +755,7 @@
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
 {"err":{},"message":"An error occured","level":"error"}
+{"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -702,26 +764,6 @@
 {"message":"Running express application at 3000","level":"info"}
 {"err":{},"message":"An error occured","level":"error"}
 {"err":{},"message":"An error occured","level":"error"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"err":{},"message":"An error occured","level":"error"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -759,6 +801,33 @@
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"operationTime":"6853524239585116161","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853524239585116161","signature":{"hash":"YkW1NMSib+Hyul2GZcJUcy4tB44=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"operationTime":"6853524471513354370","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853524471513354370","signature":{"hash":"I5gKw1svECDBpFbY+2/rv5gETiE=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -785,26 +854,20 @@
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -823,6 +886,65 @@
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"err":{"generatedMessage":true,"name":"AssertionError [ERR_ASSERTION]","code":"ERR_ASSERTION","actual":false,"expected":true,"operator":"=="},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{"operationTime":"6853536995637985281","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853536995637985281","signature":{"hash":"7kXvL34Ue7IzIMbJSRHgWApIBnQ=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"err":{"operationTime":"6853537124487004161","ok":0,"code":2,"codeName":"BadValue","$clusterTime":{"clusterTime":"6853537124487004161","signature":{"hash":"v0wMAa77mjP9svpp+0/40yoBU+s=","keyId":"6818151756518653954"}},"name":"MongoError"},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
@@ -837,29 +959,6 @@
 {"message":"Running express application at 3000","level":"info"}
 {"err":{},"message":"An error occured","level":"error"}
 {"message":"Configuration options loaded","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"err":{},"message":"An error occured","level":"error"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"err":{},"message":"An error occured","level":"error"}
-{"message":"Configuration options loaded","level":"info"}
-{"message":"Connected to the database","level":"info"}
-{"message":"Initialised express application","level":"info"}
-{"message":"Mounted middlewares to express application","level":"info"}
-{"message":"Mounted express routes","level":"info"}
-{"message":"Running express application at 3000","level":"info"}
-{"err":{},"message":"An error occured","level":"error"}
-{"message":"Configuration options loaded","level":"info"}
 {"message":"Connected to the database","level":"info"}
 {"message":"Initialised express application","level":"info"}
 {"message":"Mounted middlewares to express application","level":"info"}
@@ -885,3 +984,26 @@
 {"message":"Mounted middlewares to express application","level":"info"}
 {"message":"Mounted express routes","level":"info"}
 {"message":"Running express application at 3000","level":"info"}
+{"err":{},"message":"An error occured","level":"error"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Mounted express routes","level":"info"}
+{"message":"Running express application at 3000","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Configuration options loaded","level":"info"}
+{"message":"Connected to the database","level":"info"}
+{"message":"Initialised express application","level":"info"}
+{"message":"Mounted middlewares to express application","level":"info"}

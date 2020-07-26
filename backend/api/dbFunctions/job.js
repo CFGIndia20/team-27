@@ -20,14 +20,14 @@ module.exports = {
      * @desc Find all jobs
      */
     findAllJobs: () => {
-        return Job.find();
+        return Job.find({}).lean();
     },
 
     /**
      * @desc Find jobs by skills
      */
     findBySkill: (skills) => {
-        return Job.find({skills: {"$in": skills}});
+        return Job.find({skills: {"$in": skills}}).lean();
     },
 
     /**
