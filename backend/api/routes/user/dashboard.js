@@ -11,29 +11,26 @@ module.exports = async (req, res) => {
         const {userId} = req.body;
 
         const user = await getAccessType(userId);
-        if (user.verified == false) {
-            return res.json({...AuthError, message: 'Please get verified'})
-        }
         if (user.access == 'student' && user.student == null) {
             return res.json({...AuthError, message: 'Please enter your details'})
         }
         if (user.access == 'teacher') {
             const original = await getTeacherOriginalSlots(userId);
             const added = await getAddedSlots(userId);
-            return res.json({...Success, original, added});
+            return res.json({...Success, access: user.access, original, added});
         }
         if (user.access == 'admin') {
             const slotsCreated = await getCreatedByUser(userId);
-            return res.json({...Success, slotsCreated});
+            return res.json({...Success, access: user.access, slotsCreated});
         }
         const slotDetails = await getStudentDetailsForJob(user.student);
         if (slotDetails.slot == null) {
-            return res.json({...Success, active: null, message: 'Add a new slot'})
+            return res.json({...Success, access: user.access, active: null, message: 'Add a new slot'})
         }
 
-        const presentClasses = await getPresent(slotDetails.slot._id);
+        const presentClasses = await getPresent(slotDetails.slot._id, userId);
         const allClasses = await getTotalClasses(slotDetails.slot._id);
-        return res.json({...Success, isActive: slotDetails.slot.active, presentClasses, allClasses});
+        return res.json({...Success, access: user.access, isActive: slotDetails.slot.active, presentClasses: presentClasses.dailyStatus, allClasses: allClasses.dailyStatus});
     } catch (err) {
         logger.error({err:error, message: 'An error occured'});
         return res.json(ServerError);

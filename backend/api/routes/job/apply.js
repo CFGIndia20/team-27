@@ -14,12 +14,20 @@ module.exports = async (req, res) => {
 
         /** Course completed */
         const completed = await getStudentDetailsForJob(user.student);
-        if(completed.slot == null || completed.slot.active == true) {
-            return res.json(AuthError);
-        }
-        const allClasses = await getTotalClasses(completed.slot._id);
-        const presentClasses = await getPresent(completed.slot._id);
-        if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
+        // if(completed.slot == null || completed.slot.active == true) {
+        //     return res.json(AuthError);
+        // }
+        const presentClasses = await getPresent(completed.slot._id, userId);
+        let numberOfClassesPresent = 0;
+        let totalClasses = 0;
+        presentClasses.dailyStatus.forEach((elem) => {
+            if (elem.attendance != null) {
+                numberOfClassesPresent +=1;
+            }
+            totalClasses+=1;
+        })
+
+        if (totalClasses!=0 && numberOfClassesPresent/totalClasses < 0.8) {
             return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
         }
 

@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
 
         return res.json(Success);
     } catch (error) {
+        console.log(error);
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);   
     }

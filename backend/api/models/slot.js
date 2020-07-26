@@ -18,7 +18,7 @@ const Slot = new mongoose.Schema({
         {
             teacher: {type: mongoose.Schema.Types.ObjectId, ref: 'User', default:null},
             date: {type: Date},
-            attendance: {type: mongoose.Schema.Types.ObjectId, ref: 'Attendance',default:null}
+            attendance: {type: mongoose.Schema.Types.ObjectId, ref: 'Attendance'}
         }
     ]
 });

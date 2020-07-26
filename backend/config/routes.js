@@ -41,7 +41,6 @@ router.post('/user/verify', AdminAuth, User.Verify);
 router.get('/user/verify', AdminAuth, User.UnVerified);
 router.post('/slots', AdminAuth, Slot.AddSlot);
 router.delete('/slots', AdminAuth, Slot.RemoveSlot);
-router.get('/user/dashboard', AdminUserAuth, User.Dashboard);
 router.post('/job', AdminAuth,Job.AddJob);
 router.delete('/job', AdminAuth, Job.RemoveJob);
 router.get('/slots/change', AdminAuth, Slot.GetSwitchRequests);
@@ -50,16 +49,19 @@ router.post('/slots/teachers/free',AdminAuth, Slot.GetFreeTeacher);
 
 router.get('/job', AdminUserAuth, Job.Search.all);
 router.post('/job/bySkill', AdminUserAuth, Job.Search.bySkill);
-router.post('/slots/users',UserAuth, Slot.FetchUsers);
-
-
-
-/** USer functions */
 router.get('/slots',AdminUserAuth, Slot.GetSlots);
-router.post('/slots/select', StudentAuth, Slot.SelectSlot);
 
+router.post('/slots/users',UserAuth, Slot.FetchUsers);
+router.get('/user/dashboard', UserAuth, User.Dashboard);
+
+
+/** User functions */
+router.post('/slots/select', StudentAuth, Slot.SelectSlot);
+router.post('/jobs/student', UserAuth, Job.ApplyJob);
+router.delete('/jobs/student', UserAuth, Job.RemoveJob);
 
 /** Teacher functions */
 router.post('/slots/change', TeacherAuth, Slot.AskForChangeSlot);
+router.post('/slots/PostAttendance', TeacherAuth, Slot.PostAttendance);
 
 module.exports = router;
