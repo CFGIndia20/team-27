@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         if (!confirmation) return res.json({ ...AuthError, message: "Incorrect credentials" });
         if (!user.verified && user.access != 'admin') return res.json({ ...Forbidden, message: "Please wait to be verified by an admin" });
         let token = await generate({ id: user.id });
-        return res.json({ ...Success, access:user.access, name: user.name, token:token.token});
+        return res.json({ ...Success, verified:user.verified, access:user.access, name: user.name, token:token.token});
     } catch(error) {
         logger.error({err:error, message: "An error occured"});
         return res.json(ServerError);
