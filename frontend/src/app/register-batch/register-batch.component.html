@@ -4,36 +4,49 @@
         
         <tr class="thead-dark">
             <th>
-                <h1>Name</h1>
-            </th>
-            <th>
-                <h1>Start Date</h1> 
-            </th>
-            <th>
                 <h1>Start Time</h1>
+            </th>
+            <th>
+                <h1>End Time</h1> 
+            </th>
+            <th>
+                <h1>Start Date</h1>
+                
+            </th>
+            <th>
+                <h1>End Date</h1>
                 
             </th>
             <th>
                 <h1> Register</h1>
             </th>
+        </tr>
         
-
-        </tr>
-        <tr>
-            <td>
-                <h2>A</h2>
-            </td>
-            <td>
-                <h2>08/11/20</h2>
-            </td>
-            <td>
-                <h2>07:00</h2>
-            </td>
-            <td>
-                <h2><button mat-raised-button color='secondary'>Register</button></h2>
-            </td>
-
-        </tr>
+        
+        <ng-container *ngFor = "let slot of api.slots">
+            <ng-container *ngIf="slot.startBy && slot.endBy && slot.startTime && slot.endTime">
+                <tr>
+                <td>
+                    <h2>{{slot.startBy | date:'shortDate'}}</h2>
+                </td>
+                <td>
+                    <h2>{{slot.endBy | date:'shortDate'}}</h2>
+                </td>
+                <td>
+                        <h2>{{slot.startTime}}</h2>
+                </td>
+                <td>
+                    <h2>{{slot.endTime}}</h2>
+                </td>
+                <td>
+                    <h2><button (click)="submit(slot._id)" mat-raised-button color='secondary'>Register</button></h2>
+                </td>
+            </tr>
+            </ng-container>
+             
+        </ng-container>
+    
+        
       </table>
  </div>
     

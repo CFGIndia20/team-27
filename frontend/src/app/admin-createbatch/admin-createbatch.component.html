@@ -6,33 +6,49 @@
             <mat-form-field class="example-container" appearance="fill"  > 
                 <mat-label>Start Date</mat-label>
                 <input class="datepicker" data-date-format="mm/dd/yyyy"
-                type="date" [(ngModel)]="date" matInput>
+                type="date" [(ngModel)]="startDate" matInput>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="example-container" appearance="fill"  > 
                 <mat-label>End Date</mat-label>
                 <input class="datepicker" data-date-format="mm/dd/yyyy"
-                type="date" [(ngModel)]="date" matInput>
+                type="date" [(ngModel)]="endDate" matInput>
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col">
                 <mat-form-field class="example-container" appearance="fill"  > 
                     <mat-label>Start Time(HHMM)</mat-label>
-                    <input type="number"  [(ngModel)]="date" matInput>
+                    <input type="number"  [(ngModel)]="startTime" matInput>
                 </mat-form-field>
             </div>
             <div class="col">
                 <mat-form-field class="example-container" appearance="fill"  > 
                     <mat-label>End Time(HHMM)</mat-label>
-                    <input type="number"  [(ngModel)]="date" matInput>
+                    <input type="number"  [(ngModel)]="endTime" matInput>
                 </mat-form-field>
             </div>
-          </div>
-        
-        
+          </div> -->
+          <div class="mx-auto form-group">
+            <mat-form-field class = "example-container" appearance="fill">
+                <mat-label>TimeSlot</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let ts of timeslot" [value]="ts">
+                    {{ts/100}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <!-- <mat-form-field class = "example-container" appearance="fill">
+                <mat-label>TimeSlot</mat-label>
+                <mat-inpou>
+                  
+                    {{value/100 +1}}
+              </mat-label>
+              </mat-form-field> -->
+        </div>
+                
             <br><button type="submit" (click)="submit()" mat-raised-button color="primary">Submit</button>
         
         

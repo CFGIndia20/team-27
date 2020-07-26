@@ -42,6 +42,8 @@ import { AdminJobsComponent } from './admin-jobs/admin-jobs.component';
 import { AddJobComponent } from './admin-jobs/add-job/add-job.component';
 import { VerifyStudentComponent } from './admin-verify/verify-student/verify-student.component';
 
+import { TokenInterceptor } from './token.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +90,12 @@ import { VerifyStudentComponent } from './admin-verify/verify-student/verify-stu
     MatTabsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS,
+    useClass : TokenInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

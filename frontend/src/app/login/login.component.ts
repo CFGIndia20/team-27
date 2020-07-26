@@ -25,16 +25,18 @@ export class LoginComponent implements OnInit {
       email : this.email,
       password : this.password
     }
+    console.log(postData);
     this.http.post("http://localhost:3000/api/auth/login", postData)
     .subscribe(data=>{
                     console.log(data);
                     this.api = data as string[];
                     localStorage.setItem('token',this.api.token)
                     localStorage.setItem('access',this.api.access)
+                    localStorage.setItem('verified',this.api.verified)
+                    this.route.navigate(['./home']);
             } ,
       (error) => console.log(error)
     )
-    this.route.navigate(['./home']);
   }
   
 }

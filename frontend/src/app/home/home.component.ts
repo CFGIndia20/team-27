@@ -14,11 +14,16 @@ export class HomeComponent implements OnInit {
     map(result => result.matches)
   );
    access 
+   verified
+   completed
   constructor(public router : Router,private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    //this.access = localStorage.getItem('access');
-    this.access = 'student'
+    this.access = localStorage.getItem('access');
+    //this.access = 'student'
+    this.verified = localStorage.getItem('verified');
+    //this.verified = false;
+    this.completed = true
   }
   logout(){
     localStorage.clear();

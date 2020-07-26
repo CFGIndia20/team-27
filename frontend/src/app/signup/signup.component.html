@@ -10,23 +10,23 @@
           <div >
             <mat-form-field class="example-container" appearance="fill">
               <mat-label>Name</mat-label>
-              <input [(ngModel)]="name" matInput>
+              <input [(ngModel)]="name" matInput required>
             </mat-form-field>
             <br>
             <mat-form-field class="example-container" appearance="fill"  > 
                 <mat-label>Email</mat-label>
-                <input type="email" [(ngModel)]="email" matInput>
+                <input type="email" [(ngModel)]="email" matInput required>
             </mat-form-field>
             <br>
             <mat-form-field class="example-container" appearance="fill"  > 
                 <mat-label>Phone</mat-label>
-                <input type="number" minlength="10" maxlength="10" [(ngModel)]="phone" matInput>
+                <input type="number" minlength="10" maxlength="10" required [(ngModel)]="phone" matInput>
             </mat-form-field>
             <br>
             <mat-form-field class="example-container" appearance="fill"  > 
                 <mat-label>Date</mat-label>
                 <input class="datepicker" data-date-format="mm/dd/yyyy"
-                type="date" [(ngModel)]="date" matInput>
+                type="date" [(ngModel)]="date" matInput required>
             </mat-form-field>
             <br>
 
@@ -45,7 +45,6 @@
             </mat-form-field>
             <br>
           </div>
-          
         </mat-card-content>
         <mat-card-actions>
           <button (click)=submit() mat-raised-button color="primary">Submit</button>

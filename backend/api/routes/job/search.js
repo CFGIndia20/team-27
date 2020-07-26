@@ -16,17 +16,17 @@ module.exports = {
             }
 
             /** Course completed */
-            const completed = await getStudentDetailsForJob(userId);
+            //const completed = await getStudentDetailsForJob(userId);
             // if(completed.slot == null || completed.slot.active == true) {
             //     return res.json(AuthError);
             // }
 
-            const allClasses = await getTotalClasses(completed.slot._id);
-            const presentClasses = await getPresent(completed.slot._id, userId);
+            // const allClasses = await getTotalClasses(completed.slot._id);
+            // const presentClasses = await getPresent(completed.slot._id, userId);
 
-            if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
-                return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
-            }
+            // if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
+            //     return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
+            // }
             const jobs = await findBySkill(skills);
             return res.json({...Success, jobs});
         } catch (error) {
@@ -44,16 +44,16 @@ module.exports = {
             }
 
             /** Course completed */
-            const completed = await getStudentDetailsForJob(user.student);
+            //const completed = await getStudentDetailsForJob(user.student);
             // if(completed.slot == null || completed.slot.active == true) {
             //     return res.json(AuthError);
             // }
 
-            const allClasses = await getTotalClasses(completed.slot._id);
-            const presentClasses = await getPresent(completed.slot._id, userId);
-            if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
-                return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
-            }
+            // const allClasses = await getTotalClasses(completed.slot._id);
+            // const presentClasses = await getPresent(completed.slot._id, userId);
+            // if (presentClasses.dailyStatus.length/allClasses.dailyStatus.length < 0.8) {
+            //     return res.json({...AuthError, message: 'You have not completed the attendance criteria'});
+            // }
             const jobs = await findAllJobs();
             return res.json({...Success, jobs});
         } catch (error) {

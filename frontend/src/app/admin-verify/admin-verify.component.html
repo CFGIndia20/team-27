@@ -16,23 +16,30 @@
     <mat-tab-group mat-align-tabs="center">
         <mat-tab label="Student">
             <mat-nav-list >
-                <mat-list-item >
-                    <a matLine >Student</a>
-                    <button (click)="openDialog()" mat-raised-button color="primary">
-                        Verify
-                    </button>
-                </mat-list-item>
+                <div *ngFor = "let user of api.users">
+                    <div *ngIf = "user.access == 'student'" style="display:flex;align-items:center;justify-content: space-between;" >
+                        <a matLine >{{user.name}}</a>
+                        <button (click)="openDialog(user._id)" mat-button  color="primary">
+                            Verify
+                        </button>
+                    </div>
+                    
+                </div>
             </mat-nav-list>
         </mat-tab>
         <mat-tab label="Teacher">
             <mat-nav-list >
-                <mat-list-item >
-                    <a matLine >Teacher</a>
-                    <button  mat-raised-button  color="primary">
-                        Verify
-                    </button>
-                </mat-list-item>
-            </mat-nav-list>
+                <div *ngFor = "let user of api.users">
+                    <div *ngIf = "user.access == 'teacher'" style="display:flex;align-items:center;justify-content: space-between;"> 
+                        <a matLine >{{user.name}}</a>
+                        <button (click)="openDialog(user._id)" mat-button color="primary">
+                            Verify
+                        </button>
+                    </div>
+                    
+                </div>
+                
+        </mat-nav-list>
         </mat-tab>
         
       </mat-tab-group>
