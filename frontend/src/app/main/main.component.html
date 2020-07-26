@@ -1,0 +1,24 @@
+
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+     <h1 (click)="this.router.navigate(['main/title'])">
+       StudyCircle
+     </h1>
+     <span class="space"></span>   
+   
+      <button  (click)="this.router.navigate(['main/signup'])" style="margin:10px" mat-raised-button color='secondary'>
+        SignUp
+      </button>
+      <button   (click)="this.router.navigate(['main/login'])" style="margin:10px" mat-raised-button color='secondary'>
+        Login
+      </button>
+    
+    </mat-toolbar-row>
+   </mat-toolbar>
+
+     
+   <router-outlet></router-outlet>
+   
+     
+   

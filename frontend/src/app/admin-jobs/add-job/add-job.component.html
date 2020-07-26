@@ -1,0 +1,42 @@
+  
+<div class="card">
+    <div class="example-card"> 
+      <mat-card >
+        <mat-card-header  color="primary">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title><h1>Add Job</h1></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div >
+            <mat-form-field class="example-container" appearance="fill">
+              <mat-label>Company</mat-label>
+              <input [(ngModel)]="company" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill">
+                <mat-label>Description</mat-label>
+                <input [(ngModel)]="description" matInput>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-container" appearance="fill">
+                <mat-select [formControl]="skill"  multiple>
+                  <mat-option *ngFor="let sk of skillList" [value]="sk" >{{sk}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-container" appearance="fill">
+                <mat-label>Salary</mat-label>
+                <input [(ngModel)]="salary" matInput>
+              </mat-form-field>
+              <br>
+            
+          </div>
+          
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)=submit() mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+      </mat-card>
+      
+    </div>
+  </div>

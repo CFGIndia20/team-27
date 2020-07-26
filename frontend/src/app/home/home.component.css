@@ -1,0 +1,44 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 25vh;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  button {
+    margin: 1%;
+  }
+  
+  a {
+    text-decoration: none;
+    position: relative;
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 2px solid #4F1A1C;
+    transition: 0.4s;
+  }
+  
+  a:hover:after {
+    width: 100%;
+  }

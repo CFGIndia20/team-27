@@ -1,0 +1,71 @@
+
+<div class="container">
+    
+    <div class="row">
+        <div style="width: 30%; margin: 25px auto;">
+            <button (click)="click()" style="margin-top:10px;text-align: center;" mat-raised-button color='primary'>Edit</button>
+            <br>
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+                <br>
+                <div class="form-group">
+                        <h1>Name</h1>
+                    <input [disabled]="disable" class="form-control" id="name" type="text" name="name" value="" required>  
+                    
+                    
+                </div>
+                <!-- image upload -->
+                <h1 for="10th">10th Marksheet :</h1>
+                <mat-list-item>
+                    <form [formGroup]="uploadForm" >
+                        <input [disabled]="disable" type="file" name="profile" (change) = "onFileSelect($event)" /> <br>
+                    
+                    </form>
+                    <button (click)="submit()" mat-raised-button color='secondary'>Upload Image</button>
+                </mat-list-item>
+                <br>
+                <h1>12th Marksheet :</h1>
+                <mat-list-item>
+                    <form [formGroup]="uploadForm" >
+                        <input [disabled]="disable" type="file" name="profile" (change) = "onFileSelect($event)" /> <br>
+                    
+                    </form>
+                    <button (click)="submit()" mat-raised-button color='secondary'>Upload Image</button>
+                </mat-list-item>
+                <br>
+                
+                <h1>Aadhar Card :</h1>
+                <mat-list-item>
+                    <form [formGroup]="uploadForm" >
+                        <input [disabled]="disable" type="file" name="profile" (change) = "onFileSelect($event)" /> <br>
+                    
+                    </form>
+                    <button (click)="submit()" mat-raised-button color='secondary'>Upload Image</button>
+                </mat-list-item>
+                <br>
+                <h1>BPL Card :</h1>
+                <mat-list-item>
+                    <form [formGroup]="uploadForm" >
+                        <input [disabled]="disable" type="file" name="profile" (change) = "onFileSelect($event)" /> <br>
+                    
+                    </form>
+                    <button (click)="submit()" mat-raised-button color='secondary'>Upload Image</button>
+                </mat-list-item>
+                <br>
+                <!-- skills -->
+                <div class="mx-auto form-group">
+                    <h1>Select your skills : </h1>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-select [disabled]="disable"  [formControl]="skill"  multiple>
+                          <mat-option *ngFor="let sk of skillList" [value]="sk" >{{sk}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="disable" (click)="submit()" mat-raised-button color='secondary'>Update</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

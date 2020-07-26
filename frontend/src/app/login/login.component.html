@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="example-card"> 
+      <mat-card >
+        <mat-card-header  color="primary">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image style="height: 300px;" src="https://miro.medium.com/max/800/1*6spLxrwT4Oft13yBCuT4AA.png" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <div >
+            <mat-form-field class="example-container" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input [(ngModel)]="email" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-container" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input type="password" [(ngModel)]="password" matInput>
+            </mat-form-field>
+            <br>
+          </div>
+          
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)=submit() mat-raised-button color="primary">Submit</button>
+        </mat-card-actions>
+      </mat-card>
+      
+    </div>
+  </div>
