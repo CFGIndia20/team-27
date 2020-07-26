@@ -40,7 +40,12 @@ router.post('/user/profile', UserAuth, User.Profile);
 /** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
 router.get('/user/verify', AdminAuth, User.UnVerified);
-router.post('/slots', AdminAuth, Slot.AddSlot);
+router.post('/slots', AdminAuth, [
+    check('startTime').isNumeric().withMessage("Please add a start time"),
+    check('endTime').isNumeric().withMessage('Please add an end time'),
+    check('startDate').notEmpty().withMessage('Please enter a start date'),
+    check('endDate').notEmpty().withMessage('Please enter a end date')
+], Slot.AddSlot);
 router.delete('/slots', AdminAuth, Slot.RemoveSlot);
 router.post('/job', AdminAuth,Job.AddJob);
 router.delete('/job', AdminAuth, Job.RemoveJob);

@@ -4,8 +4,8 @@ const { ServerError, Success } = require('../../responses');
 
 module.exports = async (req, res) => {
     try {
-        const { userId } = req.body;
-        const confirmation = await verifyUser(userId);
+        const { id } = req.body;
+        const confirmation = await verifyUser(id);
         if (confirmation == null) return res.json({...ServerError, message: "Error verifying user"});
         return res.json({...Success, id: confirmation._id});
     } catch(error) {
