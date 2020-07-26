@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
+const express = require('express');
 
 /**
  * @desc Mounting middle wares to app
@@ -15,5 +16,6 @@ module.exports = (app) => {
   app.use(cookieParser());
   app.use(cors({origin: 'http://localhost:4200', credentials: true}));    
   app.use(helmet());
+  app.use('/static', express.static('temp'));
   return app;
 }

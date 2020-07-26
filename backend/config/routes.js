@@ -11,8 +11,7 @@ const Job = require('../api/routes/job');
 const logger = require('./winston');
 const userAuth = require('../api/policies/userAuth');
 
-router.get('/slots', Slot.GetSlots);
-router.post('/slots/attendance', Slot.PostAttendance);
+router.get('/slots', UserAuth, Slot.GetSlots);
 
 
 router.post('/auth/register', [
@@ -39,14 +38,24 @@ router.post('/user/profile', UserAuth, User.Profile);
 /** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
 router.get('/user/verify', AdminAuth, User.UnVerified);
+
 router.post('/slots', AdminAuth, [
     check('startTime').isNumeric().withMessage("Please add a start time"),
     check('endTime').isNumeric().withMessage('Please add an end time'),
     check('startDate').notEmpty().withMessage('Please enter a start date'),
     check('endDate').notEmpty().withMessage('Please enter a end date')
 ], Slot.AddSlot);
-router.delete('/slots', AdminAuth, Slot.RemoveSlot);
-router.post('/job', AdminAuth,Job.AddJob);
+
+router.delete('/slots', [
+    check('slotId').isMongoId().withMessage("Please select valid slot")
+], AdminAuth, Slot.RemoveSlot);
+
+router.post('/job', AdminAuth, [
+    check('description').isAlpha().withMessage("Please provide a description"),
+    check('company').isAlpha().withMessage("Please provide company name"),
+    check('salary').isNumeric().withMessage("Salary details incorrect")
+], Job.AddJob);
+
 router.delete('/job', AdminAuth, Job.RemoveJob);
 router.get('/slots/change', AdminAuth, Slot.GetSwitchRequests);
 router.post('/slots/change/respond',AdminAuth, Slot.RespondSwitchSlot);
@@ -56,7 +65,9 @@ router.get('/job', AdminUserAuth, Job.Search.all);
 router.post('/job/bySkill', AdminUserAuth, Job.Search.bySkill);
 router.get('/slots',AdminUserAuth, Slot.GetSlots);
 
-router.post('/slots/users',UserAuth, Slot.FetchUsers);
+router.post('/slots/users', [
+    check('slotId').isMongoId().withMessage("Please select valid slot")
+], UserAuth, Slot.FetchUsers);
 router.get('/user/dashboard', UserAuth, User.Dashboard);
 
 
