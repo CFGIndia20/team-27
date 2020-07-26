@@ -29,11 +29,12 @@ router.post('/auth/login', [
     check('password').notEmpty().withMessage("Please enter a password"),
 ], User.Login);
 
-router.post('/user/updateprofile', UserAuth, upload.single('dob'), User.StudentUpdateProfile);
+router.post('/user/updateprofile', UserAuth,
+    upload.fields([{ name: 'c10', maxCount: 1 },{ name: 'c12', maxCount: 1 },{ name: 'aadhar', maxCount: 1 },{ name: 'bpl', maxCount: 1 }]),
+    User.StudentUpdateProfile);
 /** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
 router.post('/user/profile', UserAuth, User.Profile);
-
 
 /** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
