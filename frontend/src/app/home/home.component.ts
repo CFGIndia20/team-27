@@ -13,10 +13,12 @@ export class HomeComponent implements OnInit {
   .pipe(
     map(result => result.matches)
   );
-
+   access 
   constructor(public router : Router,private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
+    //this.access = localStorage.getItem('access');
+    this.access = 'student'
   }
   logout(){
     localStorage.clear();
