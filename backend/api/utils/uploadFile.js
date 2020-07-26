@@ -22,13 +22,8 @@ const multer = require("multer");
 //     },
 // });
 const storage = multer.diskStorage({
-<<<<<<< HEAD
     destination:(req,file,cb)=>{
         cb(null,'temp')
-=======
-    destination: function (req, file, cb) {
-        cb(null, process.cwd() + '/temp');
->>>>>>> master
     },
     filename : (req,file,cb)=>{
         cb(null,file.fieldname+'-'+Date.now()+'-'+file.originalname)

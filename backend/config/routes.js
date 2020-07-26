@@ -33,7 +33,7 @@ router.post('/auth/login', [
 router.post('/user/updateprofile', UserAuth, upload.single('dob'), User.StudentUpdateProfile);
 /** Admin functions */
 router.post('/user/verify', AdminAuth, User.Verify);
-
+router.post('/user/profile', UserAuth, User.Profile);
 
 
 /** Admin functions */
