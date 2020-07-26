@@ -23,10 +23,13 @@ const multer = require("multer");
 // });
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,'temp')
+        cb(null, process.cwd() + '/temp')
     },
     filename : (req,file,cb)=>{
-        cb(null,file.fieldname+'-'+Date.now()+'-'+file.originalname)
+        let ext = file.originalname.split(".").pop();
+        let fileName = file.fieldname+'-'+Date.now()+ext;
+        req.body[`${req.fieldname}Upload`] = `/temp/${fileName}`
+        cb(null,fileName);
     }
 })
 
