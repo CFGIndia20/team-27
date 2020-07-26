@@ -67,7 +67,7 @@ module.exports = {
         
     },
     findUserById: (_id) => {
-        return User.findOne({ _id });
+        return User.findOne({ _id }).populate({path: 'student'}).populate({path: 'teacher'});
     },
     findUserByEmail: (email) => {
         return User.findOne({ email });
@@ -85,6 +85,6 @@ module.exports = {
         return Student.findOne({_id: id}).populate({path: 'slot'});
     },
     getAllUnverified: () => {
-        return User.find({verified: false, access: {$ne: 'admin'}}).select('name email _id');
+        return User.find({verified: false, access: {$ne: 'admin'}}).select('name email _id access');
     }
 }
